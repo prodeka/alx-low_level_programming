@@ -1,39 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 /**
- * main - Entry point
+ * main - loop through variables a,b,c printing digits
  *
- * Return: Always 0 (Success)
+ * Return: print to stdout all possible different combinations of three digits
  */
-
 int main(void)
 {
-	int d, p, q;
+int a = '0';
+int b;
+int c;
 
-	for (d = '0'; d < '9'; d++)
-	{
-		for (p = d + 1; p <= '9'; p++)
-		{
-			for (q = p + 1; q <= '9'; q++)
-			{
-				if ((p != d) != q)
-				{
-					putchar(d);
-					putchar(p);
-					putchar(q);
-
-					if (d == '7' && p == '8')
-						continue;
-
-					putchar(',');
-					putchar(' ');
-				}
-			}
-		}
-	}
-	putchar('\n');
-
-	return (0);
+while (a <= '7')
+{
+b = a + 1;
+while (b <= '8')
+{
+c = b + 1;
+while (c <= '9')
+{
+putchar(a);
+putchar(b);
+putchar(c);
+if (a == '7' && b == '8' && c == '9')
+{
+putchar('\n');
 }
+else
+{
+putchar(',');
+putchar(' ');
+}
+c++;
+}
+b++;
+}
+a++;
+}
+return (0);
+}
+

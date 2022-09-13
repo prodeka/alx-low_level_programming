@@ -1,19 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 /**
- * main - Entry point
+ * main - Print all single digit numbers using only putchar
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
-	int d;
+	int digit;
 
-	for (d = '0'; d <= '9'; d++)
-		putchar(d);
+	for (digit = 0; digit < 10; digit++)
+	putchar(digit + '0');
+
 	putchar('\n');
 
 	return (0);
