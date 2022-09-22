@@ -1,19 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void reset_to_98(int *n);
+void swap_int(int *a, int *b);
 int main(void)
 {
-	int n;
-	n = 402;
-    	printf("n=%d\n", n);
-	reset_to_98(&n);
-	printf("n=%d\n", n);
+	int a;
+    	int b;
+
+   	a = 98;
+   	b = 42;
+    	printf("a=%d, b=%d\n", a, b);
+    	swap_int(&a, &b);
+    	printf("a=%d, b=%d\n", a, b);
 
 	return 0;
 }
 
-void reset_to_98(int *n)
+void swap_int(int *a, int *b)
 {
-	*n=98;
+	int c = 0;
+	c = *a;
+	*a = *b;
+	*b = c;
 }
