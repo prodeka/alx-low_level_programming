@@ -1,25 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap_int(int *a, int *b);
-int main(void)
+int print(int nb);
+
+int print(int nb)
 {
-	int a;
-    	int b;
 
-   	a = 98;
-   	b = 42;
-    	printf("a=%d, b=%d\n", a, b);
-    	swap_int(&a, &b);
-    	printf("a=%d, b=%d\n", a, b);
+	if (nb < 0)
+	{
+		return (0);
+	}
 
-	return 0;
+	printf("%d", nb + print(nb - 1));
+	nb --;
+
+	return (nb);
+
 }
 
-void swap_int(int *a, int *b)
+
+
+int main(void)
+
 {
-	int c = 0;
-	c = *a;
-	*a = *b;
-	*b = c;
+
+	 print(4);
+	 return (0);
+
 }
