@@ -1,30 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int print(int nb);
-
-int print(int nb)
+int main(int argc,char *argv[])
 {
-
-	if (nb < 0)
+	if (argc > 0)
 	{
-		return (0);
+		printf("value of argv is %s", argv-1 );
+		return 0;
 	}
-
-	printf("%d", nb + print(nb - 1));
-	nb --;
-
-	return (nb);
-
-}
-
-
-
-int main(void)
-
-{
-
-	 print(4);
-	 return (0);
-
 }
