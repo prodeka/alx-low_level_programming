@@ -1,0 +1,6 @@
+#!/bin/bash
+git config --global user.name "Serge TABE DJATO"
+git config --global user.email protazertyuiop@gmail.com
+git add .
+git commit -m malloc_free_project
+git push
