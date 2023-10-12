@@ -25,13 +25,13 @@ i += 1;
 if (owner != NULL)
 while (owner[j] != '\0')
 j += 1;
-_dog->name = malloc(i * sizeof(char) + 1);
+_dog->name = malloc(i *sizeof(char) + 1);
 if (_dog->name == NULL)
 {
 free(_dog);
 return (NULL);
 }
-_dog->owner = malloc(j * sizeof(char) + 1);
+_dog->owner = malloc(j *sizeof(char) + 1);
 if (_dog->owner == NULL)
 {
 free(_dog->name);
