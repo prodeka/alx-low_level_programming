@@ -9,7 +9,6 @@
  * Return: Si n == 0 - 0.
  *         Sinon - la somme de tous les parametres.
  */
-
 int sum_them_all(const unsigned int n, ...)
 {
 va_list nums;
