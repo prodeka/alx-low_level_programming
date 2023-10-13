@@ -4,40 +4,44 @@
 #include <stdlib.h>
 
 /**
-* print_char - prints a char
+* print_char - imprime un caractère
 * @vargs: argument
 * Return: void
 */
+
 void print_char(va_list vargs)
 {
 printf("%c", va_arg(vargs, int));
 }
 
 /**
-* print_integer - prints an integer
+* print_integer - imprime un entier
 * @vargs: argument
 * Return: void
 */
+
 void print_integer(va_list vargs)
 {
 printf("%d", va_arg(vargs, int));
 }
 
 /**
-* print_float - prints a float
+* print_float - imprime une flotante
 * @vargs: argument
 * Return: void
 */
+
 void print_float(va_list vargs)
 {
 printf("%f", va_arg(vargs, double));
 }
 
 /**
-* print_string - prints a string
+* print_string - imprime une chaîne de caractères
 * @vargs: argument
 * Return: void
 */
+
 void print_string(va_list vargs)
 {
 char *ch;
@@ -51,8 +55,8 @@ printf("%s", ch);
 }
 
 /**
-* print_all - a function prints all arguments
-* @format: the format
+* print_all - une fonction qui imprime tous les arguments
+* @format: le format
 * Return: void
 */
 
