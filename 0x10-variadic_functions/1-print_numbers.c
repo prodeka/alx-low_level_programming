@@ -1,12 +1,14 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
+
 /**
-* print_numbers - a function that prints numbers
-* @separator: separator between numbers
-* @n: numbers of arguments
-* Return: nothing
+* print_numbers - une fonction qui imprime des nombres
+* @separator: séparateur entre les nombres
+* @n: nombre d'arguments
+* Return: rien
 **/
+
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
