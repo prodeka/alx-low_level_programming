@@ -1,12 +1,14 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
+
 /**
-* print_strings - a function that prints a string
-* @separator: separator between strings
-* @n: numbers of arguments
-* Return: nothing
+* print_strings - une fonction qui imprime des chaînes de caractères
+* @separator: séparateur entre les chaînes
+* @n: nombre d'arguments
+* Return: rien
 */
+
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
