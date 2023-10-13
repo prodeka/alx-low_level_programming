@@ -113,3 +113,71 @@ Ensuite, la boucle `for` parcourt tous les paramètres variables. Pour chaque pa
 Une fois que tous les paramètres ont été traités et que les nombres ont été imprimés, la fonction imprime un saut de ligne pour passer à la ligne suivante, puis termine la liste variable à l'aide de `va_end`.
 
 En résumé, ce projet contient une fonction variadique `print_numbers` qui imprime un nombre variable de nombres en utilisant un séparateur spécifié entre eux. Cette fonction est utile lorsque vous avez besoin d'imprimer plusieurs nombres avec un séparateur personnalisé en C.
+
+## projet 2. One woman's constant is another woman's variable
+
+Ce projet est un fichier source en langage C qui contient une fo    nction appelée `print_strings`. Voici la structure et les fonctionnalités de ce projet :
+
+```c
+#include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
+```
+
+Ce code inclut le fichier d'en-tête "variadic_functions.h" ainsi que les en-têtes nécessaires pour les opérations d'entrée/sortie standard et pour travailler avec des fonctions variadiques, soit `<stdio.h>` et `<stdarg.h>`.
+
+```c
+/**
+* print_strings - une fonction qui imprime des chaînes de caractères
+* @separator: séparateur entre les chaînes
+* @n: nombre d'arguments
+* Return: rien
+*/
+void print_strings(const char *separator, const unsigned int n, ...)
+{
+    va_list args;
+    unsigned int i;
+
+    char *p;
+
+    va_start(args, n);
+```
+
+La fonction `print_strings` est une fonction variadique qui imprime des chaînes de caractères. Elle prend trois arguments :
+
+- `separator` : Le séparateur qui sera imprimé entre les chaînes.
+- `n` : Le nombre d'arguments passés à la fonction.
+- `...` : Les arguments variables. Les trois points de suspension (...) indiquent que la fonction peut accepter un nombre variable de paramètres.
+
+La fonction commence par initialiser une liste variable `args` à l'aide de `va_start`. Cette liste variable sera utilisée pour accéder aux paramètres variables.
+
+```c
+    for (i = 0; i < n; i++)
+    {
+        p = va_arg(args, char *);
+        if (p == NULL)
+        {
+            printf("(nil)");
+        }
+        else
+        {
+            printf("%s", p);
+        }
+        if (i < n - 1)
+        {
+            if (separator)
+                printf("%s", separator);
+        }
+    }
+```
+
+Ensuite, la boucle `for` parcourt tous les paramètres variables. Pour chaque paramètre, la fonction utilise `va_arg` pour extraire la valeur du paramètre de la liste variable, qui est une chaîne de caractères, puis elle l'imprime à l'aide de `printf`. Si la chaîne de caractères est nulle (c'est-à-dire `NULL`), elle imprime "(nil)" à la place. Si l'index `i` n'est pas le dernier paramètre, la fonction imprime également le séparateur spécifié, à condition que `separator` ne soit pas nul.
+
+```c
+    printf("\n");
+    va_end(args);
+```
+
+Une fois que tous les paramètres ont été traités et que les chaînes de caractères ont été imprimées, la fonction imprime un saut de ligne pour passer à la ligne suivante, puis termine la liste variable à l'aide de `va_end`.
+
+En résumé, ce projet contient une fonction variadique `print_strings` qui imprime un nombre variable de chaînes de caractères en utilisant un séparateur personnalisé entre elles. Si une chaîne est nulle, elle imprime "(nil)" à la place. Cette fonction est utile lorsque vous avez besoin d'imprimer plusieurs chaînes de caractères avec un séparateur personnalisé en C.
