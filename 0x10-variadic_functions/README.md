@@ -1,41 +1,54 @@
-Write a function that returns the sum of all its parameters.
+__Projet 0. Beauty is variable, ugliness is constant__
 
-Prototype: int sum_them_all(const unsigned int n, ...);
-If n == 0, return 0
+Ce projet est un fichier source en langage C qui contient une fonction appelée `sum_them_all`. Voici la structure et les fonctionnalités de ce projet :
 
-Write a function that prints numbers, followed by a new line.
+```c
+#include "variadic_functions.h"
+#include <stdarg.h>
+```
 
-Prototype: void print_numbers(const char *separator, const unsigned int n, ...);
-where separator is the string to be printed between numbers
-and n is the number of integers passed to the function
-You are allowed to use printf
-If separator is NULL, don’t print it
-Print a new line at the end of your function
+Ce code inclut le fichier d'en-tête "variadic_functions.h" et l'en-tête de la bibliothèque `<stdarg.h>`, qui est nécessaire pour travailler avec des fonctions variadiques.
 
-Write a function that prints strings, followed by a new line.
+```c
+/**
+ * sum_them_all - retourne la somme de tous ces parametres
+ * @n: le nombre de paramètres
+ * @...: les paramètres variables
+ *
+ * Return: Si n == 0 - 0.
+ *         Sinon - la somme de tous les paramètres.
+ */
+int sum_them_all(const unsigned int n, ...)
+{
+	va_list nums;
+	unsigned int index, sum = 0;
 
-Prototype: void print_strings(const char *separator, const unsigned int n, ...);
-where separator is the string to be printed between the strings
-and n is the number of strings passed to the function
-You are allowed to use printf
-If separator is NULL, don’t print it
-If one of the string is NULL, print (nil) instead
-Print a new line at the end of your function
+	va_start(nums, n);
+```
 
-Write a function that prints anything.
+La fonction `sum_them_all` est une fonction variadique qui calcule la somme de ses paramètres. Elle prend deux arguments :
+- `n` : Le nombre de paramètres que la fonction recevra.
+- `...` : Les paramètres variables. Les trois points de suspension (...) indiquent que la fonction peut accepter un nombre variable de paramètres.
 
-Prototype: void print_all(const char * const format, ...);
-where format is a list of types of arguments passed to the function
-c: char
-i: integer
-f: float
-s: char * (if the string is NULL, print (nil) instead
-any other char should be ignored
-see example
-You are not allowed to use for, goto, ternary operator, else, do ... while
-You can use a maximum of
-2 while loops
-2 if
-You can declare a maximum of 9 variables
-You are allowed to use printf
-Print a new line at the end of your function
+La fonction commence par initialiser une liste variable `nums` à l'aide de `va_start`. Cette liste variable sera utilisée pour accéder aux paramètres variables.
+
+```c
+	for (index = 0; index < n; index++)
+		sum += va_arg(nums, int);
+```
+
+Ensuite, la boucle `for` parcourt tous les paramètres variables. Pour chaque paramètre, la fonction utilise `va_arg` pour extraire la valeur du paramètre de la liste variable et l'ajoute à la variable `sum`.
+
+```c
+	va_end(nums);
+```
+
+Une fois que tous les paramètres ont été traités, la fonction termine la liste variable à l'aide de `va_end`.
+
+```c
+	return (sum);
+```
+
+Enfin, la fonction renvoie la somme de tous les paramètres.
+
+En résumé, ce projet contient une fonction variadique `sum_them_all` qui prend un nombre variable de paramètres, les additionne tous, et renvoie la somme. Cette fonction est utile lorsque vous avez besoin d'additionner un nombre inconnu de valeurs en C.
