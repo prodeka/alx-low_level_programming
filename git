@@ -1,4 +1,5 @@
-#!/bin/bash
+
+!/bin/bash
 git add .
 git commit -m "New_version_file"
 git push
